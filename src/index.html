@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Election</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="text-center" style="background-color:rgb(41, 192, 238);">National Election</h1>
+          <hr/>
+          <br/>
+          <div id="loader">
+            <p class="text-center">Loading...</p>
+          </div>
+          <div id="content" style="display: none;">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col" style="color:blue; font-size:200%;">Candidate name</th>
+                  <th scope="col" style="color:blue; font-size:200%;">Number of votes</th>
+                </tr>
+              </thead>
+              <tbody id="candidatesResults">
+              </tbody>
+            </table>
+            <hr/>
+            <form id = "candidateForm" onSubmit="App.castVote(); return false;">
+              <div class="form-group">
+                <label for="candidatesSelect" style="color:rgb(185, 30, 216); font-size:150%;">Choose Candidate</label>
+                <select class="form-control" id="candidatesSelect">
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Vote</button>
+              <hr />
+            </form>
+            <button type="submit" class="btn btn-primary" onclick="App.endVoting()">End Voting</button>
+            <p id="accountAddress" class="text-center"></p>
+            <p>To use this application, you must possess a MeteMask account. Simply select which candidate</p>
+            <p>you would like to vote for, then click on the vote button. Once you have done this, a pop up</p>
+            <p>will appear from MeteMask. Select accept and some Ether will be transfered.</p>
+            <p>Congratulations, you have voted</p>
+            <form id = "addressForm"onSubmit="App.addAddress(); return false;">
+              <div class="form-group">
+                <label for="vAddress">Register address:</label>
+                <input type="text" id="vAddress" name="vAddress"><br><br>
+              </div>
+              <button type="submit" class="btn btn-primary">Add Voter</button>
+              <hr />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
